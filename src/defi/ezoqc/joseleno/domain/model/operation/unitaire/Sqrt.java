@@ -1,4 +1,6 @@
-package defi.ezoqc.joseleno.operations.unitaire;
+package defi.ezoqc.joseleno.domain.model.operation.unitaire;
+
+import defi.ezoqc.joseleno.domain.model.operation.AbsUnitOperation;
 
 public class Sqrt extends AbsUnitOperation {
 

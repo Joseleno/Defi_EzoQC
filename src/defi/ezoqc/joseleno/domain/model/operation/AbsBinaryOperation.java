@@ -1,6 +1,6 @@
-package defi.ezoqc.joseleno.operations.binaire;
+package defi.ezoqc.joseleno.domain.model.operation;
 
-import defi.ezoqc.joseleno.infrastructure.IBinaryOperation;
+import defi.ezoqc.joseleno.domain.interfaces.IBinaryOperation;
 
 public abstract class AbsBinaryOperation implements IBinaryOperation {
 	

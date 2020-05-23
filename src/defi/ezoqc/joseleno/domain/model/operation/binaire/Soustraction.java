@@ -1,4 +1,6 @@
-package defi.ezoqc.joseleno.operations.binaire;
+package defi.ezoqc.joseleno.domain.model.operation.binaire;
+
+import defi.ezoqc.joseleno.domain.model.operation.AbsBinaryOperation;
 
 public class Soustraction extends AbsBinaryOperation {
 

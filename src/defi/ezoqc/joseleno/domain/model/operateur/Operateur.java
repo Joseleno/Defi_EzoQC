@@ -1,6 +1,6 @@
-package defi.ezoqc.joseleno.utils;
+package defi.ezoqc.joseleno.domain.model.operateur;
 
-import defi.ezoqc.joseleno.infrastructure.IOperation;
+import defi.ezoqc.joseleno.domain.interfaces.IOperation;
 
 public class Operateur implements Comparable<Operateur>{
 	
