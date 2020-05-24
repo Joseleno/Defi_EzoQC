@@ -20,7 +20,7 @@ public class CalculatriceService implements ICalculatriceService{
 		mapFiltre.register(new FiltreAddition());
 	}
 	
-	public String calcular(String expression) {
+	public String calculer(String expression) {
         try {
             return expression;
         } catch (ArithmeticException ae) {

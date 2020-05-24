@@ -1,5 +1,7 @@
 package defi.ezoqc.joseleno.presentation;
 
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -14,84 +16,97 @@ public class CalculatriceDeskTop extends JFrame {
 
 		    private CalculatriceService calculatriceService;
 
-		    private JLabel lbExpressao;
-		    private JLabel lbResultado;
-		    private JTextField tfExpressao;
-		    private JTextField tfResultado;
-		    private JButton btCalcular;
-		    private JButton btLimpar;
+		    private JLabel lbExpression;
+		    private JLabel lbResultat;
+		    private JTextField tfExpression;
+		    private JTextField tfResultat;
+		    private JButton btCalculer;
+		    private JButton btNettoyer;
 
-		    public JLabel getLbExpressao() {
-		        return this.lbExpressao;
+		    public JLabel getLbExpression() {
+		        return this.lbExpression;
 		    }
 
-		    public JLabel getLbResultado() {
-		        return this.lbResultado;
+		    public JLabel getLbResultat() {
+		        return this.lbResultat;
 		    }
 
-		    public JTextField getTfExpressao() {
-		        return this.tfExpressao;
+		    public JTextField getTfExpression() {
+		        return this.tfExpression;
 		    }
 
-		    public JTextField getTfResultado() {
-		        return this.tfResultado;
+		    public JTextField getTfResultat() {
+		        return this.tfResultat;
 		    }
 
 
-		    public JButton getBtCalcular() {
-		        return this.btCalcular;
+		    public JButton getBtCalculer() {
+		        return this.btCalculer;
 		    }
 
-		    public JButton getBtLimpar() {
-		        return this.btCalcular;
+		    public JButton getBtNettoyer() {
+		        return this.btCalculer;
 		    }
+		    
 
 		    public void iniciarComponentes() {
-		        this.setTitle("Calculadora");
+		        this.setTitle("Calculatrice - EzoQC");
 		        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		        this.setResizable(false);
 		        this.setSize(300, 210);
 		        this.setLocationRelativeTo(null);
-		        this.setLayout(null);
+		        this.setLayout(new GridLayout(4, 2));
 		        this.setVisible(true);
 
-		        this.lbExpressao = new JLabel("Expressão");
-		        this.lbResultado = new JLabel("Resultado");
-		        this.tfExpressao = new JTextField();
-		        this.tfResultado = new JTextField();
-		        this.btCalcular = new JButton("Calcular");
-		        this.btLimpar = new JButton("Limpar");
+		        this.lbExpression = new JLabel("Expression");
+		        this.lbResultat = new JLabel("Resultat");
+		        this.tfExpression = new JTextField();
+		        this.tfResultat = new JTextField();
+		        this.btCalculer = new JButton("Calculer");
+		        this.btNettoyer = new JButton("Nettoyer");
 
-		        this.lbExpressao.setBounds(20, 20, 150, 20);
-		        this.tfExpressao.setBounds(20, 40, 260, 20);
-		        this.lbResultado.setBounds(20, 80, 150, 20);
-		        this.tfResultado.setBounds(20, 100, 260, 20);
-		        this.btCalcular.setBounds(160, 140, 100, 20);
-		        this.btLimpar.setBounds(40, 140, 100, 20);
+		        this.lbExpression.setBounds(20, 20, 150, 20);
+		        
+		        this.tfExpression.setBounds(20, 40, 260, 20);
+		        this.lbResultat.setBounds(20, 80, 150, 20);
+		        this.tfResultat.setBounds(20, 100, 260, 20);
+		        this.btCalculer.setBounds(160, 140, 100, 20);
+		        this.btNettoyer.setBounds(40, 140, 100, 20);
+		        
+		        this.lbExpression.setOpaque(false);
+		        this.lbExpression.setForeground(Color.black);
+		        
+		        
+		        
+		        this.lbExpression.setToolTipText("Rentrez l'expression");
 
-		        this.tfResultado.setEnabled(false);
+		        this.tfExpression.setVisible(true);
+		        this.tfExpression.setEnabled(true);
+		        this.tfResultat.setVisible(true);
 
-		        this.add(lbExpressao);
-		        this.add(tfExpressao);
-		        this.add(lbResultado);
-		        this.add(tfResultado);
-		        this.add(btCalcular);
-		        this.add(btLimpar);
+		        this.tfResultat.setEnabled(false);
 
-		        this.tfExpressao.addKeyListener(new KeyAdapter() {
+		        this.add(lbExpression);
+		        this.add(tfExpression);
+		        this.add(lbResultat);
+		        this.add(tfResultat);
+		        this.add(btCalculer);
+		        this.add(btNettoyer);
+
+		        this.tfExpression.addKeyListener(new KeyAdapter() {
 		            @Override
 		            public void keyPressed(KeyEvent e){
 		                habilitarBotoes();
 		            }
 		        });
 
-		        this.btLimpar.addActionListener(ae -> {
-		                limparDados();
+		        this.btNettoyer.addActionListener(ae -> {
+		                NettoyerDados();
 		        });
 
-		        this.btCalcular.addActionListener(ae -> {
-		            String resultado = calculatriceService.calcular(tfExpressao.getText());
-		            this.tfResultado.setText(resultado);
+		        this.btCalculer.addActionListener(ae -> {
+		            String Resultat = calculatriceService.calculer(tfExpression.getText());
+		            this.tfResultat.setText(Resultat);
 		        });
 		    }
 
@@ -102,18 +117,18 @@ public class CalculatriceDeskTop extends JFrame {
 		    }
 
 		    private void desabilitarBotoes() {
-		        this.btCalcular.setEnabled(false);
-		        this.btLimpar.setEnabled(false);
+		        this.btCalculer.setEnabled(false);
+		        this.btNettoyer.setEnabled(false);
 		    }
 
 		    private void habilitarBotoes() {
-		        this.btCalcular.setEnabled(true);
-		        this.btLimpar.setEnabled(true);
+		        this.btCalculer.setEnabled(true);
+		        this.btNettoyer.setEnabled(true);
 		    }
 
-		    private void limparDados() {
-		        this.tfExpressao.setText(null);
-		        this.tfResultado.setText(null);
+		    private void NettoyerDados() {
+		        this.tfExpression.setText(null);
+		        this.tfResultat.setText(null);
 		    }
 
 }
