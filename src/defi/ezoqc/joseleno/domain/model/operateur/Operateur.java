@@ -1,5 +1,7 @@
 package defi.ezoqc.joseleno.domain.model.operateur;
 
+import java.util.Objects;
+
 import defi.ezoqc.joseleno.domain.interfaces.IOperation;
 
 public class Operateur implements Comparable<Operateur>{
@@ -29,14 +31,29 @@ public class Operateur implements Comparable<Operateur>{
 
 	@Override
 	public int compareTo(Operateur o) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return Integer.compare(this.ordre, o.ordre);
 	}
 
-	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) 
+			return true;
+		if (!(o instanceof Operateur))
+			return false;
+		Operateur operateur = (Operateur) o;
+		return symbole == operateur.symbole;
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(symbole);
+	}
 
-
+	@Override
+	public String toString() {
+		return ""+symbole;
+	}
 
 
 }
